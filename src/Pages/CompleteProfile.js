@@ -43,6 +43,20 @@ const CompleteProfile = () => {
       .catch((err) => {
         console.log(err);
       });
+
+      fetch("https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyCCXzhbX-HRm-ujGbrRU7-ynAlPT4t8HTY",{
+method:"POST",
+body:JSON.stringify({
+    idToken:id,
+}),
+headers:{
+"Content-Type":"application-json"
+}
+      }).then((resp)=>{
+        console.log(resp)
+      }).catch((err)=>{
+        console.log(err)
+      })
   };
   return (
     <div>
