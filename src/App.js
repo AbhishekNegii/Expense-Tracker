@@ -1,11 +1,13 @@
+import React from 'react';
 import './App.css';
-import Login from './Pages/Login';
+import AuthForm from './Pages/AuthForm';
+
 
 function App() {
   return (
     <div>
-       <Login/>
-    </div>
+        <AuthForm/>
+       </div>
   );
 }
 
