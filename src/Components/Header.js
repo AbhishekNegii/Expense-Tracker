@@ -7,6 +7,7 @@ const Header = () => {
         <Link to="/authform">Login</Link>
         <Link to="/expense">ExpenseTracker</Link>
         <Link to="/completeProfile">Complete Profile</Link>
+        <Link to="/forgetpassword">ForgetPassword</Link>
 
       
     </div>

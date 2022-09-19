@@ -156,3 +156,10 @@ body {
     background-color: transparent;
     color: #ae82cc;
   }
+
+  .btn{
+    background-color: violet;
+    position: absolute;
+    margin-left: 80px;
+    padding: 1%;
+  }
