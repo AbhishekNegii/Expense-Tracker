@@ -44,7 +44,7 @@ const Expenses = () => {
         alert(err);
       });
 
-    // contxt.addExpense(data);
+    contxt.addExpense(data);
   };
 
   return (

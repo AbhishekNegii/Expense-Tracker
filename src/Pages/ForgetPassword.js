@@ -23,7 +23,7 @@ const ForgetPassword = () => {
     )
       .then((resp) => {
         if (resp.ok) {
-          alert("Password reset link send successfully....")
+          alert("Password reset link send successfully....");
           return resp.json();
         } else {
           resp.json().then((data) => {

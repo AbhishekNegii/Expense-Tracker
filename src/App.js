@@ -6,6 +6,7 @@ import AuthForm from "./Pages/AuthForm";
 import CompleteProfile from "./Pages/CompleteProfile";
 import ExpenseTracker from "./Pages/ExpenseTracker";
 import ForgetPassword from "./Pages/ForgetPassword";
+import VerifyEmail from "./Pages/VerifyEmail";
 import AuthContext from "./Store/Auth-Context";
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path="/dailyexpense" exact>
           <ExpenseShow/>
+        </Route>
+        <Route path="/verifyemail" exact>
+          <VerifyEmail/>
         </Route>
         <Route path="*">
           <Redirect to="/authform">

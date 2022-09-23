@@ -1,17 +1,16 @@
-import React from 'react'
+import React from "react";
+import classes from "./ExpenseDisplay.module.css";
 
 const ExpenseDisplay = (props) => {
-    console.log(props)
-    const display = props.data.map((item)=>(
-        <div>
-        <li>{item.amount} {item.description} {item.category}</li>
-        </div>
-        ))
-  return (
+  console.log(props);
+  const display = props.data.map((item) => (
     <div>
-       {display} 
+      <li>
+        {item.amount} --- {item.category} --- {item.description}
+      </li>
     </div>
-  )
-}
+  ));
+  return <div className={classes.arrange}>{display}</div>;
+};
 
-export default ExpenseDisplay
+export default ExpenseDisplay;

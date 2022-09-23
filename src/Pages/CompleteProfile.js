@@ -10,20 +10,17 @@ const CompleteProfile = () => {
     const name = nameInputRef.current.value;
     const image = imageInputRef.current.value;
 
-    const id= localStorage.getItem('token')
-
-   
+    const id = localStorage.getItem("token");
 
     fetch(
       "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyCCXzhbX-HRm-ujGbrRU7-ynAlPT4t8HTY",
       {
         method: "POST",
         body: JSON.stringify({
-           idToken:id,
+          idToken: id,
           displayname: name,
           photourl: image,
-          returnSecureToken:true
-          
+          returnSecureToken: true,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -41,32 +38,37 @@ const CompleteProfile = () => {
         }
       })
       .then((data) => {
-        alert("update succesfully...")
+        alert("update succesfully...");
         console.log("Last Then", data);
       })
       .catch((err) => {
         console.log(err);
       });
 
-      fetch("https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyCCXzhbX-HRm-ujGbrRU7-ynAlPT4t8HTY",{
-method:"POST",
-body:JSON.stringify({
-    idToken:id,
-}),
-headers:{
-"Content-Type":"application-json"
-}
-      }).then((resp)=>{
-        console.log(resp)
-      }).catch((err)=>{
-        console.log(err)
+    fetch(
+      "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyCCXzhbX-HRm-ujGbrRU7-ynAlPT4t8HTY",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          idToken: id,
+        }),
+        headers: {
+          "Content-Type": "application-json",
+        },
+      }
+    )
+      .then((resp) => {
+        console.log(resp);
       })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div>
-        <div>
-            <Logout/>
-        </div>
+      <div>
+        <Logout />
+      </div>
       <form>
         <div>
           <label> Full Name</label>

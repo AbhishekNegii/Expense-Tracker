@@ -1,6 +1,8 @@
 import React, { useContext, useRef, useState } from "react";
+import { useDispatch } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import AuthContext from "../Store/Auth-Context";
+import { authActions } from "../Store/AuthSlice";
 // import Login from "./Login";
 import "./AuthForm.css";
 
@@ -8,7 +10,8 @@ const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  const history = useHistory();
+  const history = useHistory()
+  const dispatch=useDispatch()
 
   const authCntxt = useContext(AuthContext);
 
@@ -90,7 +93,8 @@ const AuthForm = () => {
         .then((data) => {
           console.log(data);
           authCntxt.login(data.idToken);
-          localStorage.setItem("token", data.idToken);
+          dispatch(authActions.login(data.idToken))
+          // localStorage.setItem("token", data.idToken);
           history.replace("/expense");
         })
         .catch((err) => {
@@ -99,11 +103,9 @@ const AuthForm = () => {
     }
   };
 
-  
-  const forgetPasswordHandler=()=>{
-    history.replace("/forgetpassword")
-
-  }
+  const forgetPasswordHandler = () => {
+    history.replace("/forgetpassword");
+  };
 
   return (
     <section>
@@ -153,9 +155,12 @@ const AuthForm = () => {
             <button type="button" class="toggle" onClick={switchAuthHandler}>
               {isLogin ? "Create new account" : "Login with existing account"}
             </button>
-            
           </div>
-         {isLogin && <button class="btn" onClick={forgetPasswordHandler}>Forget Password</button>} 
+          {isLogin && (
+            <button class="btn" onClick={forgetPasswordHandler}>
+              Forget Password
+            </button>
+          )}
         </form>
       </div>
     </section>

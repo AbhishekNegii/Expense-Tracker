@@ -9,6 +9,7 @@ const Header = () => {
       <Link to="/completeProfile">Complete Profile</Link>
       <Link to="/forgetpassword">ForgetPassword</Link>
       <Link to="/dailyexpense">Daily Expense</Link>
+      <Link to="/verifyemail"></Link>
     </div>
   );
 };
