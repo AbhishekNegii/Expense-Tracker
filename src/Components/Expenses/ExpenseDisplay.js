@@ -10,7 +10,9 @@ const ExpenseDisplay = (props) => {
       </li>
     </div>
   ));
-  return <div className={classes.arrange}>{display}</div>;
+  return <div className={classes.arrange}>
+     {display}
+    </div>;
 };
 
 export default ExpenseDisplay;

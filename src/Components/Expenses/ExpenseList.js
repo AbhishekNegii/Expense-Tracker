@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import ExpenseContext from "../../Store/Expense-Context";
 import ExpenseDisplay from "./ExpenseDisplay";
 
@@ -6,6 +7,7 @@ const ExpenseList = () => {
   const [expense, setExpense] = useState([]);
 
   const cntxt = useContext(ExpenseContext);
+  const expensedata=useSelector(state=>state.expense.expenseData)
 
   useEffect(() => {
     display();
@@ -34,8 +36,9 @@ const ExpenseList = () => {
       <div>Expense List</div>
       {/* <ul> */}
       <div>
-        {cntxt.expense.map((item) => (
-          <li>
+        {/* {cntxt.expense.map((item) => ( */}
+         {expensedata.map((item) => (
+           <li>
             {item.amount} --- {item.description} --- {item.category}
           </li>
         ))}

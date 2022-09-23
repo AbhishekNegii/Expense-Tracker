@@ -1,8 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Logout from "../Components/Logout";
 
 const ExpenseTracker = () => {
+  const totalAmount= useSelector(state=>state.expense.totalAmount)
   const history = useHistory();
   const profileCompleteHandler = () => {
     history.push("/completeProfile");
@@ -46,6 +48,7 @@ const ExpenseTracker = () => {
       <button onClick={profileCompleteHandler}>complete now</button>
       <button onClick={verifyIdHandler}>Verify Your Email-Id</button>
       <button onClick={dailyExpenseHandler}> Add Daily Expenses</button>
+      {totalAmount>10000 && <button>Premium</button>}
     </div>
   );
 };

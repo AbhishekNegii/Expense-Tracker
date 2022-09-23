@@ -1,9 +1,12 @@
 import React, { useContext, useRef } from "react";
 import "./Expense.css";
 import ExpenseContext from "../../Store/Expense-Context";
+import { useDispatch } from "react-redux";
+import { expenseAction } from "../../Store/ExpenseSlice";
 
 const Expenses = () => {
   const contxt = useContext(ExpenseContext);
+  const dispatch=useDispatch();
 
   let amountInputRef = useRef();
   let descInputRef = useRef();
@@ -15,11 +18,16 @@ const Expenses = () => {
     const desc = descInputRef.current.value;
     const list = listInputRef.current.value;
 
+   const  totalamount=+amount;
+
+   
+
     const data = {
       amount: amount,
       description: desc,
       category: list,
     };
+    // const totalamount=+amount;
     fetch(
       "https://expense-tracker-ec029-default-rtdb.asia-southeast1.firebasedatabase.app/expense.json",
       {
@@ -45,6 +53,9 @@ const Expenses = () => {
       });
 
     contxt.addExpense(data);
+    dispatch(expenseAction.addedExpenses(data))
+    dispatch(expenseAction.totalAmount(totalamount))
+
   };
 
   return (
