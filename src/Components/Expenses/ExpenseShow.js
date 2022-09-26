@@ -1,4 +1,5 @@
 import React from "react";
+import BackButton from "../Button/BackButton";
 import Premium from "../Button/Premium";
 import Card from "../Layout/Card";
 import Logout from "../Logout";
@@ -9,7 +10,8 @@ const ExpenseShow = () => {
   return (
     <div>
       <Card>
-        <Premium/>
+        <BackButton />
+        <Premium />
         <Logout />
         <Expenses />
       </Card>
