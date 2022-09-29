@@ -1,26 +1,43 @@
-import React, { useRef } from "react";
-
-
-
-
+import React, { useContext } from "react";
+import BackButton from "../Components/Button/BackButton";
+import Card from "../Components/Layout/Card";
+import ExpenseContext from "../Store/Expense-Context";
 
 const VerifyEmail = () => {
+  const id = localStorage.getItem("token");
+  
+  const verifyMailHandler = () => {
+    fetch(
+      " https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyCCXzhbX-HRm-ujGbrRU7-ynAlPT4t8HTY",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          requestType: "VERIFY_EMAIL",
+          idToken: id,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((resp) => {
+        if(resp.ok){
+          const data=resp.json()
+          console.log(data)
+          alert('Verification Mail sent successfully')
+        }
+        }).catch((err)=>{
+          console.log(err)
+        })
+      
+  };
 
-    let mail=useRef();
-
-    const verifyMailHandler=()=>{
-        let email=mail.current.value;
-        console.log(email)
-    }
-
-    
-  // 
+  //
   return (
-    <div>
-      <label>Email</label>
-      <input type="text" ref={mail}/>
-      <button onClick={verifyMailHandler}>veriy Email</button>
-    </div>
+    <Card>
+      <BackButton />
+      <button onClick={verifyMailHandler}>Verify Email</button>
+    </Card>
   );
 };
 

@@ -24,10 +24,8 @@ const Logout = () => {
 
   return (
     <div class="navigation">
-      <a class="button" href="">
-        <button onClick={logoutHandler}>{url}</button>
-      </a>
-    </div>
+          <a onClick={logoutHandler}>{url}</a>
+      </div>
   );
 };
 

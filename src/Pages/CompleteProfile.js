@@ -1,5 +1,8 @@
 import React, { useRef } from "react";
+import BackButton from "../Components/Button/BackButton";
+import Card from "../Components/Layout/Card";
 import Logout from "../Components/Logout";
+import "./CompleteProfile.css"
 
 const CompleteProfile = () => {
   const nameInputRef = useRef();
@@ -65,22 +68,37 @@ const CompleteProfile = () => {
       });
   };
   return (
-    <div>
+    <Card>
+      <BackButton />
       <div>
         <Logout />
       </div>
       <form>
-        <div>
+        <div class="col-md-3 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <img
+              class="rounded-circle mt-5"
+              width="150px"
+              src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+              alt="imm"
+            />
+           </div>
+        </div>
+        <div class="row mt-3">
+        <div class="col-md-12">
           <label> Full Name</label>
-          <input type="text" ref={nameInputRef} required />
+          <input type="text" class="form-control" ref={nameInputRef} required />
         </div>
-        <div>
+        <div class="col-md-12">
           <label>Upload Your image</label>
-          <input type="file" accept="/image/*" ref={imageInputRef} />
+          <input class="form-control" type="file" accept="/image/*" ref={imageInputRef} />
         </div>
-        <button onClick={updateHandler}>Update</button>
+        </div>
+        <div class="mt-5 text-center">
+        <button class="btn btn-primary profile-button" onClick={updateHandler}>Update</button>
+        </div>
       </form>
-    </div>
+    </Card>
   );
 };
 

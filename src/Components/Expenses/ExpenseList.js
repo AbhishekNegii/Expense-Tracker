@@ -7,7 +7,7 @@ const ExpenseList = () => {
   const [expense, setExpense] = useState([]);
 
   const cntxt = useContext(ExpenseContext);
-  const expensedata=useSelector(state=>state.expense.expenseData)
+  const expensedata = useSelector((state) => state.expense.expenseData);
 
   useEffect(() => {
     display();
@@ -18,7 +18,7 @@ const ExpenseList = () => {
       "https://expense-tracker-ec029-default-rtdb.asia-southeast1.firebasedatabase.app/expense.json "
     );
     const value = await data.json();
-    console.log(value);
+    // console.log(value);
     cntxt.addExpense(value);
     const array = [];
     for (const key in value) {
@@ -30,16 +30,17 @@ const ExpenseList = () => {
     }
     setExpense(array);
   };
-  console.log(expense);
+  // console.log(expense);
   return (
     <div>
       <div>Expense List</div>
       {/* <ul> */}
       <div>
         {/* {cntxt.expense.map((item) => ( */}
-         {expensedata.map((item) => (
-           <li>
+        {expensedata.map((item) => (
+          <li>
             {item.amount} --- {item.description} --- {item.category}
+            
           </li>
         ))}
         <ExpenseDisplay data={expense} />

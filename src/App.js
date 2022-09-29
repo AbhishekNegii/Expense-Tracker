@@ -30,9 +30,10 @@ function App() {
         <Route path="/forgetpassword" exact>
           <ForgetPassword/>
         </Route>
-        <Route path="/dailyexpense" exact>
+        {isLoggedIn && (<Route path="/dailyexpense" exact>
           <ExpenseShow/>
         </Route>
+        )}
         <Route path="/verifyemail" exact>
           <VerifyEmail/>
         </Route>

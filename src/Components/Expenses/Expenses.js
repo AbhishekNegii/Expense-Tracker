@@ -78,7 +78,7 @@ const Expenses = () => {
             <option>Fuel</option>
           </select>
         </div>
-        <button class="buttonSave">Add Expense</button>
+        <button class="btnn">Add Expense</button>
       </form>
     </div>
   );

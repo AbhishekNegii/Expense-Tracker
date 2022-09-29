@@ -1,12 +1,15 @@
 .navigation {
-    width: 100%;
-    background-color:white;
+  position: absolute;
+  right: 250px;
+  /* width: 200px; */
+  /* height: 120px; */
+  
   }
   
   img {
     width: 30px;
     border-radius: 50px;
-    float: left;
+    /* float: left; */
     height: auto;
   }
   
@@ -26,14 +29,16 @@
   
   .button {
       text-decoration: none;
-      float: right;
+      /* float: right; */
+
     padding: 5px;
     margin: 10px;
     color: white;
     width: 25px;
+    left: 150px;
     /* background-color: black; */
     transition: width .40s;
-    -webkit-transition: width .35s;
+    /* -webkit-transition: width .35s; */
     overflow: hidden
   }
   

@@ -10,7 +10,7 @@ const Premium = () => {
       setTheme('dark-theme');
       console.log("dark");
     } else {
-      setTheme('dark-theme');
+      setTheme('light-theme');
     }
   };
   useEffect(()=>{ 
@@ -19,7 +19,7 @@ const Premium = () => {
   return (
     <div>
       {totalAmount > 2000 && (
-        <button onClick={themeChangeHandler}>Activate Premium</button>
+        <button onClick={themeChangeHandler} class="btn">Activate Premium</button>
       )}
     </div>
   );

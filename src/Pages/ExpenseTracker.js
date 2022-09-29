@@ -13,26 +13,8 @@ const ExpenseTracker = () => {
   const id = localStorage.getItem("token");
 
   const verifyIdHandler = () => {
-    fetch(
-          " https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyCCXzhbX-HRm-ujGbrRU7-ynAlPT4t8HTY",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              requestType: "VERIFY_EMAIL",
-              idToken: id,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-          .then((resp) => {
-            console.log(resp);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-  };
+    history.replace('/verifyemail')
+     };
 
   const dailyExpenseHandler = () => {
     history.replace("/dailyexpense");
@@ -45,9 +27,9 @@ const ExpenseTracker = () => {
       <h1>Welcome To Expense Tracker</h1>
 
       <p>Your Profile is incomplete</p>
-      <button onClick={profileCompleteHandler}>complete now</button>
-      <button onClick={verifyIdHandler}>Verify Your Email-Id</button>
-      <button onClick={dailyExpenseHandler}> Add Daily Expenses</button>
+      <button onClick={profileCompleteHandler} class="btnn">complete now</button>
+      <button onClick={verifyIdHandler} class="btnn">Verify Your Email-Id</button>
+      <button onClick={dailyExpenseHandler} class="btnn"> Add Daily Expenses</button>
       {totalAmount>10000 && <button>Premium</button>}
     </div>
   );
